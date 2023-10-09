@@ -1,0 +1,44 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class CryptoManagerTestStudent {
+
+	@Test
+    public void testIsStringInBounds() {
+        assertTrue(CryptoManager.isStringInBounds("HELLO"));
+        assertFalse(CryptoManager.isStringInBounds("Hello, World!"));
+    }
+
+    @Test
+    public void testEncryptCaesar() {
+    	assertEquals("The selected string is not in bounds, Try again.", CryptoManager.caesarEncryption("bye", 3));
+		assertEquals("DOH", CryptoManager.caesarEncryption("ALE", 3));
+		
+   
+    }
+    @Test
+	public void testDecryptCaesar() {
+		assertEquals("I LIKE TO EAT", CryptoManager.caesarDecryption("J!MJLF!UP!FBU", 1));
+		assertEquals("PETER PIPER PICKED", CryptoManager.caesarDecryption("RGVGT\"RKRGT\"RKEMGF", 2));
+	}  
+   
+    
+    @Test
+    public void testEncryptBellaso() {
+		assertEquals("PN", CryptoManager.bellasoEncryption("HI", "HELLO"));
+		assertEquals("\\MU_/QX,M/KT[X", CryptoManager.bellasoEncryption("THIS IS A COOL", "HELLO"));
+		
+
+	}
+    public void testDecryptBellaso() {
+    	assertEquals("PNTUW)VRKN(]W)UNM](\"W^", CryptoManager.bellasoEncryption("HI NICE TO MEET YOU", "HELLO"));
+    	assertEquals("IWW]PNZ)ZX]WL)", CryptoManager.bellasoEncryption("ANOTHER ROUND ", "HI"));
+    	
+    }
+
+}
+    
